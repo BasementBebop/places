@@ -1,12 +1,13 @@
-#show-contact {
+#show-place {
   display: none;
 }
 
-.contact {
+.place {
   cursor: pointer;
-  color: #0088cc;
+  color: #ff0000;
 }
 
-.contact:hover{
-  text-decoration: underline;
+.place:hover{
+  text-decoration: overline;
+  color: #136444;
 }

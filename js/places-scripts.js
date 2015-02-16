@@ -1,30 +1,24 @@
-
 $(document).ready(function() {
-  $("form#new-contact").submit(function(event) {
+  $("form#new-place").submit(function(event) {
     event.preventDefault();
 
-    var inputtedFirstName = $("input#new-first-name").val();
-    var inputtedLastName = $("input#new-last-name").val();
-    var inputtedAddress = $("input#new-address").val();
-    var newContact = { firstName: inputtedFirstName,
-                      lastName: inputtedLastName,
-                      address: inputtedAddress };
+    var inputtedPlaceName = $("input#new-place-name").val();
+    var inputtedLocation = $("input#new-location").val();
+    var inputtedHighlight = $("input#new-highlight").val();
+    var newPlace = { placeName: inputtedPlaceName, locationName: inputtedLocation,
+                     highlight: inputtedHighlight };
 
+    $("ul#places").append("<li><span class='place'>" + newPlace.placeName + "</span></li>");
 
-    $("ul#contacts").append("<li><span class='contact'>"
-                    + newContact.firstName + " "
-                    + newContact.lastName + "</span></li>");
+    $("input#new-place-name").val("");
+    $("input#new-location").val("");
+    $("input#new-highlight").val("");
 
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
-    $("input#new-address").val("");
-
-    $(".contact").last().click(function() {
-      $("#show-contact").show();
-      $("#show-contact h2").text(newContact.firstName + " " + newContact.lastName);
-      $(".first-name").text(newContact.firstName);
-      $(".last-name").text(newContact.lastName);
-      $(".address").text(newContact.address);
+    $(".place").last().click(function() {
+      $("#show-place").show();
+      $("#show-place h3").text(newPlace.placeName);
+      $(".location-name").text(newPlace.locationName);
+      $(".highlight").text(newPlace.highlight);
 
     });
 
